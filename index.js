@@ -36,7 +36,7 @@ app.get('/api/data',(req,res)=>{
 
 app.post("/api/insertData",(req,res)=>{
     const {tt,tx} = req.body;
-    
+    // return res.json({ee:tt,eee:tx})
     db.query("INSERT INTO post ( title, text) VALUES (?,?)",[tt,tx],(err,results)=>{
         if(err){
             res.status(500).send("Error post Database")
@@ -57,6 +57,15 @@ app.delete("/api/deleteData",(req,res)=>{
 })
 
 
+// app.delete("/api/deleteData/:id",(req,res)=>{
+//     const {id} = req.params
+//     db.query("DELETE FROM post WHERE (id = ?)",[id],(err,results)=>{
+//         if(err){
+//             res.status(500).send("Delete ไม่ได้")
+//         }
+//         res.status(200).json("Delete succes");  
+//     });
+// })
 
 
 
